@@ -1,0 +1,78 @@
+/* Write your styles */
+* {
+    margin: 0;
+    padding: 0;
+    border:0;
+}
+ *,
+ *:before,
+ *:after {
+   -moz-box-sizing: border-box;
+   -webkit-box-sizing: border-box;
+   box-sizing: border-box;
+ }
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem; /* =16px */
+}
+
+/* 首页样式*/
+.item{
+	padding: 10px 10px;
+
+  -webkit-transition: -webkit-transform .3s ease; 
+  transition:  transform .3s ease-in-out;
+}
+.item:active{
+   -webkit-transform:scale(.7,.7);
+   -moz-transform:scale(.7,.7);
+   transform:scale(.7,.7);
+
+}
+.item p{
+	margin:5px 0 0 0;
+}
+.am-u-sm-4,.am-u-md-4,.am-u-lg-4{
+	border:1px solid #eee;
+}
+[data-am-widget=tabs]{
+  margin: 0;
+}
+
+/*  个人主页自定义样式*/
+#user.am-container{
+  padding: 5px;
+ 
+}
+#user .am-g {
+  margin:5px;
+
+}
+#user .am-g:first-child {
+  border:1px solid #eee;
+  border-radius: 5px;
+}
+#user img{
+  margin:10px 0;
+}
+#user #userMessage .title{
+  padding:5px 0 8px 12px;
+  height: 
+}
+#user #userMessage .value{
+  padding-left: 0;
+}
+#user #userMessage .value input{
+  border:none;
+  color: #999;
+  font
+}
+#user #userMessage hr{
+  margin: 0;
+}
+#user #userMessage hr:last-child{
+  display: none;
+}

@@ -1,0 +1,37 @@
+<%- include ../include/head %>
+<%- include ../include/header %>
+
+ <div id="user" class="am-container">
+
+ 	<div class="am-g">
+
+	  	<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12 am-text-center">
+			<img class="am-circle" src=<%= imgUrl %> width="30%" height="30%"/>
+		</div>
+
+			<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12" id="userMessage">   
+				<% userMessage.forEach(function(userMessage){ %>
+					<div class="am-u-lg-3 am-u-md-3 am-u-sm-3 am-u-xs-3 title ">
+							<%= userMessage.name %>：
+					</div>
+					<div class="am-u-lg-9 am-u-md-9 am-u-sm-9 am-u-xs-9 am-form-label value">
+						<small><input type="text" class="am-form-field am-radius am-text-right" placeholder="" value=<%= userMessage.value %> /></small>
+					</div>
+				
+				    <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+				<% }) %>
+			</div>
+	</div>
+	<br>
+	<div class="am-g">
+		<a type="button" href="/users/modify" class="am-btn am-btn-primary am-btn-block am-radius">修改密码</a>
+	</div>
+	<div class="am-g">
+		<a type="button" href="/exit" class="am-btn am-btn-danger am-btn-block am-radius">退出登陆</a>
+	</div>
+
+ </div>
+
+<%- include ../include/footer %>
+<%- include ../include/foot %>
