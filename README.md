@@ -7,17 +7,25 @@
 
 首页样式
 
-![FAST首页.jpg](https://i.loli.net/2017/09/07/59b0bc6b8265c.jpg)
+<img src="https://i.loli.net/2017/09/07/59b0bc6b8265c.jpg" width="50%" />
+
+
 
 个人中心样式
 
-![FAST个人中心.jpg](https://i.loli.net/2017/09/07/59b0bc6b47514.jpg)
+
+<img src="https://i.loli.net/2017/09/07/59b0bc6b47514.jpg" width="50%" />
+
 
 修改密码样式(登陆后用户修改)
 
-![FAST修改密码.png](https://i.loli.net/2017/09/07/59b0bc6b930c7.png)
+
+<img src="(https://i.loli.net/2017/09/07/59b0bc6b930c7.png" width="50%" />
+
 
 其他页面后续完成，后续会完成
+
+
 
 
 ##		项目技术
