@@ -5,22 +5,22 @@
 
 ##		项目页面
 
-首页样式
+###		首页样式
 
 <img src="https://i.loli.net/2017/09/07/59b0bc6b8265c.jpg" width="50%" />
 
 
 
-个人中心样式
+###		个人中心样式
 
 
 <img src="https://i.loli.net/2017/09/07/59b0bc6b47514.jpg" width="50%" />
 
 
-修改密码样式(登陆后用户修改)
+###		修改密码样式(登陆后用户修改)
 
 
-<img src="(https://i.loli.net/2017/09/07/59b0bc6b930c7.png" width="50%" />
+<img src="https://i.loli.net/2017/09/07/59b0bc6b930c7.png" width="50%" />
 
 
 其他页面后续完成，后续会完成
