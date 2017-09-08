@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET meeting listing. */
 router.get('/', function(req, res, next) {
-  res.render('meeting/meeting', { title: '会议管理' });
+  res.render('meeting/meeting', { title:'会议管理',needToDo:"3"});
 });
 
 module.exports = router;

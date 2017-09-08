@@ -18,7 +18,9 @@ html {
 body {
   font-size: 1.6rem; /* =16px */
 }
-
+h1,h2,h3,h4,h5,h6{
+  margin: 0;
+}
 /* 首页样式*/
 .item{
 	padding: 10px 10px;
@@ -35,11 +37,17 @@ body {
 .item p{
 	margin:5px 0 0 0;
 }
-.am-u-sm-4,.am-u-md-4,.am-u-lg-4{
+.col-4{
 	border:1px solid #eee;
 }
 [data-am-widget=tabs]{
   margin: 0;
+}
+
+#need-todo{
+    position: relative;
+    top: -2rem;
+    left: 1.5rem;
 }
 
 /*  个人主页自定义样式*/
@@ -75,4 +83,13 @@ body {
 }
 #user #userMessage hr:last-child{
   display: none;
+}
+label.error{
+  color:red;
+  font-size: .8rem;
+}
+
+/* 新闻中心样式 */
+.am-list>li:first-child{
+  border:none;
 }

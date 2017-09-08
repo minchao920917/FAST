@@ -1,0 +1,41 @@
+<%- include ../include/head %>
+<%- include ../include/header %>
+<!-- 通知内容 -->
+<div data-am-scrollspy="{ animation: 'slide-left'}">
+
+<div class="am-margin-sm">
+    <h1 class="am-text-center" ><%= heading %></h1>
+</div>  <!-- 标题 end -->
+<div class="am-g am-cf ">  
+    <div class="am-u-sm-4 am-text-right">
+      <small><span class="am-text">作者：<small><%= autor %></small></span></small>
+    </div>
+    <div class="am-u-sm-8 am-text-left">
+      <small><span>发布时间：&nbsp;<small><%= time %></small></span></small>
+    </div>
+</div>
+<br>
+<article data-am-widget="paragraph" class="am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }"">
+
+	<div class="am-g">
+	<h3>各位同事:</h3>
+    <div class="am-padding-sm"><%=  dec %></div>
+	<br>
+    <% content.forEach(function(content){ %>
+   
+          <div class="am-u-sm-4 am-text-right" style="padding-right:1rem;">
+          	<%=  content.name %>:
+          </div>
+          <div class="am-u-sm-8" style="padding-left:0;">
+          	<%=  content.value %>
+          </div>
+          
+    <% }) %>
+    </div>
+    <br>
+	<h3 class="am-text-right">祝大家生活愉快!</h3>
+ </article>
+ </div>
+<!--  end -->
+<%- include ../include/footer %>
+<%- include ../include/foot %>

@@ -3,28 +3,96 @@
 
  <div id="user" class="am-container">
 
- 	<div class="am-g">
-			<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12" id="userMessage">   
+ 	<form id="modifyForm" class="am-g">
+			<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12 am-padding-sm" id="userMessage"> 
 				<div class="am-form-group">
-				    <label for="doc-vld-url-2-1">新密码：</label>
-				    <input type="password" id="newPwd"  required/>
+				    <label for="oldPwd">旧密码：</label>
+				    <input id="oldPwd" type="password" name="oldPwd" class="am-form-field am-radius" placeholder="" />
+				    
+				</div>  
+				<div class="am-form-group">
+				    <label for="newPwd">新密码：</label>
+				    <input id="newPwd" type="password" name="newPwd" class="am-form-field am-radius" placeholder="" />
+
 				</div>
 				<div class="am-form-group">
-				    <label for="doc-vld-url-2-1">确认新密码：</label>
-				    <input type="password" id="doc-vld-url-2-1"  required/>
+				    <label for="repeatPwd">确认新密码：</label>
+				    <input id="repeatPwd" type="password" name="repeatPwd" class="am-form-field am-radius" placeholder="" />
 				</div>
 			</div>
-	</div>
+	</form>
 	<br>
 	<div class="am-g">
-		<a type="button" href="javascript:void(0)" class="am-btn am-btn-primary am-btn-block am-radius">确认修改</a>
+		<a type="button" onclick="modifyPwd()" href="javascript:void(0)" class="am-btn am-btn-primary am-btn-block am-radius">确认修改</a>
 	</div>
 
+	
 
  </div>
 
 <script type="text/javascript">
-	
+
+	// 验证两次输入值是否不相同
+	jQuery.validator.addMethod("notEqualTo", function(value, element, param) {
+		return value == $("#"+param).val();
+	}, "两次密码不一致!");
+
+	$("#modifyForm").validate({
+		onfocusout: function(element) { $(element).valid();},
+		rules:{
+	        oldPwd:{
+	            required:true
+	        },
+	        newPwd:{
+	            required:true,
+	            minlength:6
+	        },
+	        repeatPwd:{
+	            required:true,
+	            notEqualTo:"newPwd"
+	        }
+	    },
+	   messages: {
+	        oldPwd:{
+	            required:"请输入原始密码"
+	        },
+	        newPwd:{
+	            required:"请输入新密码",
+	            minlength: "密码不能小于6个字符",
+	        },
+	        repeatPwd:{
+	            required:"请再次输入密码"
+	        }
+	   }
+	}); 
+
+	function modifyPwd(){
+		//console.log($('#modifyForm').serializeArray());
+		// $.ajax({
+		// 	type:"post",
+		// 	url:"modifyPwd.do",
+		// 	timeout:6000,
+		// 	async:true,
+		// 	cache:false,
+		// 	data:$('#modifyForm').serializeArray(),
+		// 	dataType:JSON,
+		// 	complete:function(){
+		// 		layer.msg("请求完成");
+		// 		$('#modifyForm').reset()
+		// 	},
+		// 	success:function(){
+		// 		layer.msg("改密成功");
+		// 		$('#modifyForm').reset()
+		// 	},
+		// 	error:function(){
+		// 		layer.msg("改密失败,服务器错误！");
+		// 	}
+
+		// });
+		layer.msg("修改成功！");
+		$("#modifyForm")[0].reset();
+	}
+
 </script>
 
 <%- include ../include/footer %>

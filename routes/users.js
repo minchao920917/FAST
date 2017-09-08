@@ -6,6 +6,7 @@ router.get('/', function(req, res, next) {
 	
 	var user = {
 		title:"个人中心",
+		needToDo:"3",
 		imgUrl:"/images/bw-2014-06-19.jpg",
 		userMessage:[{
 			name:"姓名",
@@ -33,7 +34,8 @@ router.get('/', function(req, res, next) {
 router.get('/modify', function(req, res, next) {
 	
 	var user = {
-		title:"密码修改"
+		title:"密码修改",
+		needToDo:"3"
 	};
   res.render('users/modify', user);
 });
