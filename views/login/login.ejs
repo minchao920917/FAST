@@ -1,0 +1,50 @@
+<%- include ../include/head %>
+
+<style type="text/css">
+
+body{
+
+	background:#1e709a;
+}
+
+</style>
+
+ <div id="login" class="am-container">
+
+	<div class="am-g">
+
+		<div class="am-vertical-align am-text-center " style="height: 150px;">
+		  <div class="am-vertical-align-middle am-text-xl" style="color:#fff;">
+		    欢迎使用 XX  系统
+		  </div>
+		</div>
+
+	</div>
+
+ 	<form id="login" class="am-g">
+			<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12 am-padding-sm" id="userMessage"> 
+
+				 <div class="am-form-group am-form-icon">
+				    <i class="am-icon-user"></i>
+				    <input type="text" class="am-form-field" placeholder="账号、手机号">
+				  </div>
+
+				  <div class="am-form-group am-form-icon">
+				    <i class="am-icon-key"></i>
+				    <input type="password" class="am-form-field" placeholder="密码">
+				  </div>
+			</div>
+	</form>
+	<br>
+	<div class="am-g">
+		<a type="button"  href="/" class="am-btn am-btn-primary am-btn-block am-radius">登陆</a>
+	</div>
+	<div class="am-g am-padding-xs">
+		<a  href="/forget" class="am-fr am-text-xs" style="color:#fff;">忘记密码?</a>
+	</div>
+ </div>
+
+
+
+
+<%- include ../include/foot %>

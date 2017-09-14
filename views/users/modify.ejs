@@ -1,15 +1,17 @@
 <%- include ../include/head %>
-<%- include ../include/header %>
+
 
  <div id="user" class="am-container">
 
  	<form id="modifyForm" class="am-g">
 			<div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12 am-padding-sm" id="userMessage"> 
+				
 				<div class="am-form-group">
 				    <label for="oldPwd">旧密码：</label>
 				    <input id="oldPwd" type="password" name="oldPwd" class="am-form-field am-radius" placeholder="" />
 				    
 				</div>  
+
 				<div class="am-form-group">
 				    <label for="newPwd">新密码：</label>
 				    <input id="newPwd" type="password" name="newPwd" class="am-form-field am-radius" placeholder="" />
@@ -26,7 +28,7 @@
 		<a type="button" onclick="modifyPwd()" href="javascript:void(0)" class="am-btn am-btn-primary am-btn-block am-radius">确认修改</a>
 	</div>
 
-	
+
 
  </div>
 
@@ -63,6 +65,7 @@
 	        repeatPwd:{
 	            required:"请再次输入密码"
 	        }
+
 	   }
 	}); 
 
@@ -89,11 +92,15 @@
 		// 	}
 
 		// });
-		layer.msg("修改成功！");
+		layer.msg("修改成功！两秒后跳转",function(){
+			location.href="/login";     
+		});
+		
 		$("#modifyForm")[0].reset();
+
+		
 	}
 
 </script>
 
-<%- include ../include/footer %>
 <%- include ../include/foot %>

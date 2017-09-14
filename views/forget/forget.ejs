@@ -1,0 +1,81 @@
+<%- include ../include/head %>
+
+<style type="text/css">
+
+body{
+	background:#1e709a;
+}
+
+</style>
+
+ <div id="login" class="am-container">
+
+	<div class="am-g">
+
+		<div class="am-vertical-align am-text-center " style="height: 150px;">
+		  <div class="am-vertical-align-middle am-text-xl" style="color:#fff;">
+		    
+		  </div>
+		</div>
+
+	</div>
+
+ 	<form id="login" class="am-form-inline">
+			
+
+			<div class="am-form-group">
+			    <input id="number" type="number" class="am-form-field" placeholder="电话号码" style="width: 65%;display:inline-block;">
+			    <a id="identifying" href="javascript:void(0);" class="am-btn am-btn-primary" style="color:#fff;width: 30%;display:inline-block;">验证码</a>
+			</div>
+				
+	    <div class="am-form-group">
+	    	<input type="text" class="am-form-field" placeholder="验证码">
+	    </div>
+
+	</form>
+	<br>
+	<div class="am-g">
+		<a id="reset" type="button"  class="am-btn am-btn-primary am-btn-block am-radius">确认修改</a>
+	</div>
+	
+ </div>
+
+<script type="text/javascript">
+
+
+	var wait = localStorage.getItem("wait")?localStorage.getItem("wait"):60;
+	
+	if(wait != 60){
+		time(document.getElementById("identifying"));
+	}
+	function time(o) {
+        if (wait == 0) {  
+            o.removeAttribute("disabled"); 
+            o.innerText ="重发";   
+            localStorage.removeItem("wait"); 
+            wait = 60;
+        } else {  
+            o.setAttribute("disabled", true);  
+            o.innerText = wait + "s";  
+            wait--;  
+            localStorage.setItem("wait", wait);
+            setTimeout(function() {  
+                time(o)  
+            },  
+            1000);
+        }  
+    }
+    document.getElementById("identifying").onclick = function(){time(this);}
+    
+
+    document.getElementById("reset").onclick = function(){
+
+    	var phoneNumber = document.getElementById("number").value;
+    	window.location.href="/modify?phoneNumber" + phoneNumber;
+    }
+	
+	
+</script>
+
+
+<%- include ../include/foot %>
