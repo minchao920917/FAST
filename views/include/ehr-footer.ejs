@@ -1,0 +1,32 @@
+
+<style type="text/css">
+
+    li.active{
+        background: #65c2de;
+    }
+</style>
+<div class="am-navbar am-navbar-default" data-am-widget="navbar">  
+    <ul class="am-navbar-nav am-cf am-avg-sm-4 " style=" padding: 0;"><!--导航条是否隐藏多余项的关键参数--> 
+     
+        <li <% if(title == "EHR"){ %> class="active" <% } %> >  
+            <a href="/ehr">  
+                <span class="am-icon-hand-o-up"></span>  
+                <span class="am-navbar-label">考勤</span>  
+            </a>  
+        </li>  
+   
+        <li <% if(title == "异常"){ %> class="active" <% } %>>  
+            <a href="/unusual">  
+                <span class="am-icon-exclamation-circle"></span>  
+                <span class="am-navbar-label">异常</span>  
+            </a>  
+        </li> 
+
+        <li <% if(title == "余额"){ %> class="active" <% } %>>  
+            <a href="/social">  
+                <span class="am-icon-comments-o"></span>  
+                <span class="am-navbar-label">余额</span>  
+            </a>  
+        </li>        
+    </ul>  
+</div>  

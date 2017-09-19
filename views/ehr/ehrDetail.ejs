@@ -1,0 +1,37 @@
+<%- include ../include/head %>
+<%- include ../include/ehr-header %>
+
+<div id="user" class="am-container">
+
+  <div class="am-g">
+
+      <div class="am-u-lg-12 am-u-md-12 am-u-sm-12 am-u-xs-12" id="userMessage">   
+        <% ehrMessage.forEach(function(ehrMessage){ %>
+          <div class="am-u-lg-4 am-u-md-4 am-u-sm-4 am-u-xs-4 title ">
+              <%= ehrMessage.name %>：
+          </div>
+          <div class="am-u-lg-8 am-u-md-8 am-u-sm-8 am-u-xs-8 am-form-label value">
+            <small><input type="text" class="am-form-field am-radius am-text-right" placeholder="" value="<%= ehrMessage.value %>" /></small>
+          </div>
+        
+            <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+        <% }) %>
+      </div>
+      <br>
+      <div class="am-u-lg-12">
+
+          <hr data-am-widget="divider" style="" class="am-divider am-divider-dashed" />
+
+           <div class="am-u-lg-8 am-u-md-4 am-u-sm-4 am-u-xs-4 title ">
+              审批进度:
+          </div>
+          <div class="am-u-lg-4 am-u-md-8 am-u-sm-8 am-u-xs-8 am-form-label value">
+           <a class="btn btn-primary am-fr" href="/progress?id=<%=id%>"><spam class="am-icon-list"></spam></a>
+          </div>
+      </div>
+  </div>
+</div>
+
+<%- include ../include/ehr-footer %>
+<%- include ../include/foot %>

@@ -31,7 +31,10 @@ body{
 	    <div class="am-form-group">
 	    	<input type="text" class="am-form-field" placeholder="验证码">
 	    </div>
-
+	    <div class="am-form-group am-form-icon">
+		    <i class="am-icon-key"></i>
+		    <input type="password" class="am-form-field" placeholder="密码">
+		</div>
 	</form>
 	<br>
 	<div class="am-g">
@@ -71,7 +74,10 @@ body{
     document.getElementById("reset").onclick = function(){
 
     	var phoneNumber = document.getElementById("number").value;
-    	window.location.href="/modify?phoneNumber" + phoneNumber;
+    	layer.msg("修改成功,即将跳转登陆",function(){
+    		window.location.href="/login";
+    	});
+    	
     }
 	
 	

@@ -1,0 +1,53 @@
+<%- include ../include/head %>
+<%- include ../include/ehr-header %>
+
+<div class="am-container">
+	<div class="am-g">
+		<br>
+		<div class="am-u-lg-12 am-text-center">
+			<img class="am-circle" src=<%= imgUrl %> width="30%" height="30%"/>
+		</div>
+		<div class="am-u-lg-12 am-text-center">
+			<small>您好,<span class="am-text-success"><%= data.name %></span></small>
+			<br>
+			<small class="am-link-muted">(余额,元)</small>
+		</div>
+		<div class="am-u-lg-12 am-text-center">
+			<p class=""><span class="am-text-xxl am-text-warning"><%= data.money %></span>
+			<a class="am-fr" style="margin-top: 1.2rem;" href="">去消费 ></a>
+			</p>
+		</div>
+		<br>
+		<div class="am-u-lg-12 am-text-left" style="padding: 0;">
+			<p class="am-text-xs am-padding-xs" style="background: #eee;">记录</p>
+		</div>
+		<br>
+		<div data-am-widget="list_news" class="am-u-lg-12 am-list-news ">
+
+		  <div class="am-list-news-bd am-padding-md">
+		    <ul class="am-list">
+		      
+		 		<% data.record.forEach(function(record){ %>
+		        <li class="am-g am-list-item-dated">
+		        	
+					<p class="am-margin-xs am-text-md"><%= record.name %> 
+						<% if (record.value >0) { %>
+							<span class="am-fr  am-text-success am-text-xl "><%= record.value %></span>
+						<% } else { %>
+							<span class="am-fr  am-text-danger am-text-xl "><%= record.value %></span>
+						<% } %>
+					</p>
+					<p class="am-margin-xs am-text-sm"><%= record.time %>
+					</p>
+
+		        </li>
+		        <% }) %>
+		 
+		    </ul>
+		  </div>
+		</div>
+	</div>
+</div>
+
+<%- include ../include/ehr-footer %>
+<%- include ../include/foot %>

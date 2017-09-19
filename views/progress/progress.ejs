@@ -1,0 +1,99 @@
+<%- include ../include/head %>
+<%- include ../include/header %>
+<style type="text/css">
+.people{
+	width: 20%;
+	border-right: 1px dashed #0e90d2;
+}
+.people p{
+	margin-top: 1.8rem;
+}
+.am-icon-clock-o{
+	position: relative;
+    right: -6.3rem;
+    font-size: x-large;
+    color: #0e90d2;
+}
+.test{ 
+	width:65%; 
+	border:1px solid #0e90d2; 
+	position:relative;
+	right:20px;
+	border-radius: 5px;
+}
+.test span{
+	width:0; 
+	height:0; 
+	font-size:0; 
+	overflow:hidden; 
+	position:absolute;
+}
+.test span.bot{
+    border-width:10px; 
+    border-style:solid dashed dashed;;
+    border-color:#fff #0e90d2 transparent transparent; 
+    left:-20px; 
+    top:25px;
+}
+/*平板电脑与小屏电脑之间的分辨率*/
+@media screen and (min-width: 768px) and (max-width:979px) {
+   .am-icon-clock-o{
+		
+	    right: -4.3rem;
+	  
+	}
+}
+/*横向放置的手机和竖向放置的平板之间的分辨率*/
+@media screen and (max-width:767px) {
+   .am-icon-clock-o{
+		
+	    right: -3.7rem;
+	  
+	}
+}
+
+/*竖向放置的手机以及分别率*/
+@media screen and (max-width: 480px) {
+   .am-icon-clock-o{
+		
+	    right: -1.5rem;
+	  
+	}
+}
+/*竖向放置的手机以及分别率*/
+@media screen and (max-width: 320px) {
+   .am-icon-clock-o{
+		
+	    right: -1rem;
+	  
+	}
+}
+
+</style>
+
+<div class="am-container">
+	<div class="am-g">
+	<br>
+	 <% progress.forEach(function(progress){ %>
+		<div class="people am-fl">
+			<p class="am-text-center am-text-sm"><%= progress.name %><span class="am-icon-clock-o"></span>
+				
+			</p>
+			<br>
+		</div>
+		
+		<div class=" test am-fr am-padding-xs am-border-radius">
+			   <span class="bot"></span>
+			   <div><small><%= progress.handlerTime %></small></div>
+			   <div><small><%= progress.handlerMessage %></small></div>
+			   <div class="am-text-primary"><small><%= progress.status %></small></div>
+
+		</div>
+		<div class="am-cf"></div>
+	<% }) %>
+	</div>
+</div>
+
+
+<%- include ../include/ehr-footer %>
+<%- include ../include/foot %>
