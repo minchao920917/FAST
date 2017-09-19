@@ -17,7 +17,7 @@
 
 
 
-<img src="https://i.loli.net/2017/09/08/59b2599628cb5.png" width="50%" /><img src="https://ooo.0o0.ooo/2017/09/19/59c0f847cbab1.png" width="50%" />
+<img src="https://i.loli.net/2017/09/08/59b2599628cb5.png" width="50%" /><img src="https://i.loli.net/2017/09/19/59c0f847d4c80.png" width="50%" />
 
 ###		新闻列表________________________________________________________新闻详情
 
