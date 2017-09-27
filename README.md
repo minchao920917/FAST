@@ -43,6 +43,9 @@
 
 <img src="https://i.loli.net/2017/09/19/59c0f848440d8.png" width="50%" /><img src="https://i.loli.net/2017/09/19/59c0f8490a2ba.png" width="50%" />
 
+###		日报主页________________________________________________________日期选择
+
+<img src="https://i.loli.net/2017/09/27/59cb339ea4c3d.png" width="50%" /><img src="https://i.loli.net/2017/09/27/59cb339e6a11b.png" width="50%" />
 
 其他页面后续完成
 
