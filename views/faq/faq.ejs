@@ -1,7 +1,90 @@
 <%- include ../include/head %>
+
 <%- include ../include/header %>
 
- <h1>FAQ</h1>
+<div id="faq"  class="am-container">
 
+	<div  class="am-g">
+		<form action="" class="am-form am-padding-top-lg" >
+		  <div class="am-form-group  am-form-icon am-padding-sm">
+		    <a id="search" href="javascript:void(0);" class="am-icon-search am-margin-left-sm"></a>
+		    <input type="text" id="searchText" name="search" class="am-form-field am-padding-left-lg" placeholder="请输入国家英文">
+		     
+		  </div>
+
+	  	</form>
+	</div> <!-- end am-g -->
+
+	<div class="am-g">
+		<div class="history-title">
+			<div class="history-content">
+				<span>搜索历史</span>
+			</div>
+		</div>
+	</div> <!-- end am-g -->
+
+	<div data-am-widget="list_news" class="am-list-news am-list-news-default">
+		<div class="am-list-news-bd">
+		    <ul id="history" class="am-list">
+		    <% faqHistory.forEach(function(faqHistory){ %>
+		      	<li class="am-g am-box-bd ">
+		        	<a href="/faq/faqDetail?id=<%= faqHistory.id %>" class="am-text-center am-text-warning "><%= faqHistory.title %></a>
+		      	</li>
+		     	
+		    <% }) %>
+		    </ul>
+		</div>
+	</div>
+		
+	<div  class="am-g">
+		<p class="am-text-error am-text-center">
+			<a id="clearHistory" href="javascript:void(0);">清空搜索历史</a>
+		</p>
+	</div>
+
+
+</div>
+
+<script src="/js/jquery.autocomplete.min.js"></script>
+<script src="/js/mock/countries.js"></script>
+<script type="text/javascript">
+	$(function(){
+
+	var countriesArray = $.map(countries, function (value, key) { return { value: value, data: key }; });
+
+     $('#searchText').autocomplete({
+        // serviceUrl: '/autosuggest/service/url',
+        lookup: countriesArray,
+        lookupFilter: function(suggestion, originalQuery, queryLowerCase) {
+            var re = new RegExp('\\b' + $.Autocomplete.utils.escapeRegExChars(queryLowerCase), 'gi');
+            return re.test(suggestion.value);
+        },
+        onSelect: function(suggestion) {
+            $('#selction-ajax').html('You selected: ' + suggestion.value + ', ' + suggestion.data);
+        },
+        onHint: function (hint) {
+            $('#autocomplete-ajax-x').val(hint);
+        },
+        onInvalidateSelection: function() {
+            $('#selction-ajax').html('You selected: none');
+        }
+    });
+
+		if($("#history").has("li").length > 0){
+			$("#clearHistory").show();
+			$("#clearHistory").click(function(){
+				$("#history li").fadeOut("slow");
+				$(this).fadeOut();
+			}); 
+		}else{
+			$("#clearHistory").hide();
+		}
+
+		$("#search").click(function(){
+			window.location.href = "faq/faqList?text="+$("#searchText").val().trim();
+		});
+	})
+</script>
 <%- include ../include/footer %>
+
 <%- include ../include/foot %>

@@ -1,0 +1,34 @@
+<%- include ../include/head %>
+<%- include ../include/header %>
+<!-- 文章内容 -->
+<div class="am-margin-sm">
+    <h1 class="am-text-center" ><%= heading %></h1>
+</div>  <!-- 标题 end -->
+<div class="am-g am-cf ">  
+    <div class="am-u-sm-4 am-text-right">
+      <small><span class="am-text">作者：<small><%= autor %></small></span></small>
+    </div>
+    <div class="am-u-sm-8 am-text-left">
+      <small><span>发布时间：&nbsp;<small><%= time %></small></span></small>
+    </div>
+</div>
+<br>
+<article data-am-widget="paragraph" class="am-paragraph am-paragraph-default" data-am-paragraph="{ tableScrollable: true, pureview: true }"">
+    <ul class="am-list">
+    <% faqContent.forEach(function(faqContent){ %>
+      <li class="am-g am-list-item-dated">
+        
+          <p>
+          <small><span>&nbsp;<strong class="am-text-success"><%= faqContent.people %></strong>回复：</span></small>
+          <%=  faqContent.content %>
+          
+          </p>
+          <p class="am-text-right"><small>回复时间：&nbsp;<%= faqContent.time %></small></p>
+      </li>
+    <% }) %>
+     
+    </ul>
+ </article>
+<!-- 文章内容 end -->
+<%- include ../include/footer %>
+<%- include ../include/foot %>

@@ -509,6 +509,15 @@ function bind_click(a) {
         } else {
             $(this).click(function() {
                 set_top($(this));
+                var y = $(this).attr("data_y");
+                var m = parseInt($(this).attr("data_m"));
+                if (m < 10) m = "0" + m;
+                var d = parseInt($(this).attr("data_d"));
+                if(d< 10) d = "0" + d;
+                // 跳转到具体日期详情
+                setTimeout(function () { 
+                   window.location.href="/daily/dailyEdit?date="+y+"-"+m+"-"+d;
+                }, 600);
             });
         }
     });
@@ -531,6 +540,8 @@ function set_top(a) {
         sev_d = parseInt(shu);
         document.getElementById("top_week").innerHTML = weekk;
         document.getElementById("top_yue").innerHTML = yue;
+        // 跳转到具体日期详情
+       
     } else {
         var y = a.attr("data_y");
         var m = parseInt(a.attr("data_m")) - 1;
@@ -545,6 +556,7 @@ function set_top(a) {
         document.getElementById("top_yue").innerHTML = yue;
         $(".xuanzhong").removeClass('xuanzhong');
         a.addClass("xuanzhong");
+       
     }
 }
 

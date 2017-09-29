@@ -1,0 +1,39 @@
+<%- include ../include/head %>
+
+<%- include ../include/header %>
+
+
+<br>
+<div class="am-panel-group" id="faqList">
+
+			      	
+			     
+
+<section data-am-widget="accordion" class="am-accordion am-accordion-gapped" data-am-accordion='{  }'>
+	<% faqList.forEach(function(faqList){ %>
+
+ 	<dl class="am-accordion-item">
+        <dt class="am-accordion-title">
+          <p class="am-text-primary"><%= faqList.title %></p>
+          <p class="am-text-xs"><small class="">提问人: <%= faqList.people %></small>
+          <small class="am-margin-left-xl">提问时间: <%= faqList.time %></small></p>
+        </dt>
+        <dd class="am-accordion-bd am-collapse am-collapse">
+          <div class="am-accordion-content">
+            <p><%= faqList.content %></p>
+            <p class="am-text-right am-text-xs"><a href="/faq/faqDetail?id=<%= faqList.id %>">查看更多回答>></a></p>
+          </div>
+        </dd>
+     </dl>
+     	<% }) %>
+</section>
+	
+
+  
+</div>
+
+
+
+<%- include ../include/footer %>
+
+<%- include ../include/foot %>

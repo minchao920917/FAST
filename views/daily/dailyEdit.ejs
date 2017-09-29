@@ -1,0 +1,111 @@
+<%- include ../include/head %>
+<%- include ../include/header %>
+
+<div id="dailyEdit" class="am-container">
+  <div class="am-g">
+    <form id="dailyEditForm" class="am-form ">
+      <fieldset>
+        <br>
+        <div class="am-form-group">
+          <label class="am-text-sm" for="title">标题:</label>
+          <input type="text" class="" name="title" rows="5" id="title"/>
+        </div>
+
+        <div class="am-form-group">
+          <label class="am-text-sm" for="startTime">开始日期:</label>
+          <input type="text" class="" name="startTime" rows="5" value="<%= data%>" disabled id="startTime"/>
+        </div>
+
+        <div class="am-form-group am-form-icon am-datepicker-date" >
+          <label class="am-text-sm" for="endTime">结束时间:</label>
+          <i class="am-icon-calendar"></i>
+          <input type="text" name="endTime" id="endTime" class="am-form-field" readonly placeholder="日期" value="<%= data%>" data-am-datepicker="{format: 'yyyy-mm-dd'}">
+          
+        </div>
+        
+        <div class="am-form-group">
+
+            <div class="am-fl">
+              <input type="checkbox" id="checkbox1" name="isAgree"><label for="checkbox1">同意 </label>
+            </div>
+
+            <div class="am-fr">
+             
+              <input type="checkbox" id="checkbox2" name="select1"><label for="checkbox2"></label>
+              
+            </div>
+        </div>
+        <div class="am-cf">
+        </div>    
+        <br>    
+        <div class="am-form-group">
+
+          <input type="checkbox" id="checkbox-3-1" name="select3"><label for="checkbox-3-1"><span>同意</span></label>
+          <input type="checkbox" id="checkbox-3-2" name="select3"><label for="checkbox-3-2"><span>买</span></label>
+          <input type="checkbox" id="checkbox-3-3" name="select3" checked=""><label for="checkbox-3-3"><span>买</span></label>
+          <input type="checkbox" id="checkbox-3-4" name="select3"><label for="checkbox-3-4"><span>买</span></label>
+        </div>        
+
+        <div class="am-form-group">
+
+          <input type="checkbox" id="checkbox-4-1" name="select4"><label for="checkbox-4-1"></label>
+          <input type="checkbox" id="checkbox-4-2" name="select4" checked=""><label for="checkbox-4-2"></label>
+          <input type="checkbox" id="checkbox-4-3" name="select4"><label for="checkbox-4-3"></label>
+          <input type="checkbox" id="checkbox-4-4" name="select4"><label for="checkbox-4-4"></label>
+
+        </div>        
+
+        <div class="am-form-group">
+
+          <input type="checkbox" id="checkbox-5-1" name="select5"><label for="checkbox-5-1"></label>
+
+        </div>
+        
+        <div class="am-cf">
+        </div>
+
+        <div class="am-form-group">
+          <label class="am-text-sm" for="type">类型</label>
+          <select id="doc-select-1" name="select">
+            <option value="option1">选项一...</option>
+            <option value="option2">选项二.....</option>
+            <option value="option3">选项三........</option>
+          </select>
+          <span class="am-form-caret"></span>
+        </div>
+
+        <div class="am-form-group"  id="wordCount">
+          <label class="am-text-sm" for="content">内容:</label>
+          <textarea class="" name="content" rows="6" maxlength="200" id="content" onkeydown="inputText()"></textarea>
+          <span class="wordwrap am-fr"><var id="word" class="word">200</var>/200</span>
+        </div>
+  
+      </fieldset>
+    </form>
+
+
+  </div>
+          <button id="save"  class="am-btn am-btn-warning am-radius" style="margin-left: 30%;margin-bottom: 20px;" onclick="save()">保存</button>
+
+        <button id="submit"  class="am-btn am-btn-primary am-radius" style="margin-left: 2rem;margin-bottom: 20px;" onclick="submit()">提交</button>
+        <br>
+</div>
+
+
+<script type="text/javascript">
+  function inputText(){
+    if(document.getElementById("content").value.length < 200){
+      document.getElementById("word").innerHTML = 200 - document.getElementById("content").value.length;
+    }
+  }
+  function save(){
+      console.log("save");
+      var formdata = $("#dailyEditForm").serializeArray();
+      console.log(formdata);
+  }
+</script>
+<%- include ../include/footer %>
+<%- include ../include/foot %>
+
+
+

@@ -47,6 +47,19 @@
 
 <img src="https://i.loli.net/2017/09/27/59cb339ea4c3d.png" width="50%" /><img src="https://i.loli.net/2017/09/27/59cb339e6a11b.png" width="50%" />
 
+###		日报编辑________________________________________________________日报编辑2
+
+<img src="https://i.loli.net/2017/09/29/59cda39442831.jpg" width="50%" /><img src="https://i.loli.net/2017/09/29/59cda39447c65.png" width="50%" />
+
+###		FAQ主页______________________________________________________FAQ
+
+<img src="https://i.loli.net/2017/09/29/59cda3944179a.jpg" width="50%" /><img src="https://i.loli.net/2017/09/29/59cda39441b0c.jpg" width="50%" />
+
+###		FAQ问题详情________________________________________
+
+<img src="https://i.loli.net/2017/09/29/59cda3945c868.jpg" width="50%" />
+
+
 其他页面后续完成
 
 
