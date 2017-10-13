@@ -1,7 +1,188 @@
 <%- include ../include/head %>
-<%- include ../include/header %>
+<style type="text/css">
+#later{
 
- <h1>晚餐预定</h1>
+}
+.later-warp{
+	/*background: #0e90d2;*/
+	height: 30%;
+}
+#later{
+	border-radius: 10px;
+}
+#later .description p{
+	color: #fff;
+	margin:1rem 0 5rem 0;
+}
+#imagebackage{
+	text-align: center;
+	margin-left:auto;
+	margin-right:auto;
+	margin-top: -4rem;
+}
+#dinnerForm .am-form-group{
+	border-bottom: 1px dotted #ddd;
+}
+#dinnerForm .am-form-group:last-child{
+	border: none;
+}
+#dinnerForm input{
+	border:none;
+}
+#dinnerForm input[readonly]{
+	background: #fff;
+}
+#order{
+	border:none;
+}
+</style>
+<div id="later" class="am-container">
+	<div class="am-g later-warp">
+		<div class="description">
+			<p class="am-text-center am-text-xl">今日晚餐未预定</p>
+		</div>
+		
+	</div>
+	<div id="imagebackage" class="">
+			<img class="am-circle am-img-thumbnail" src="/images/notOrder.png"/>
+	</div>
+    <br>
+<form id="dinnerForm" class="am-form am-form-horizontal">
+  <div class="am-form-group">
+    <small for="account" class="am-u-sm-4 am-form-label">预定人账号:</small>
+    <div class="am-u-sm-8">
+      <input type="text" id="account" value="<%= account %>" readonly>
+    </div>
+  </div>
 
+  <div class="am-form-group">
+    <small for="name" class="am-u-sm-4 am-form-label">预定人姓名:</small>
+    <div class="am-u-sm-8">
+      <input type="text" id="name" value="<%= name %>" readonly>
+    </div>
+  </div>
+
+  <div class="am-form-group">
+    <small for="time" class="am-u-sm-4 am-form-label">预定时间:</small>
+    <div class="am-u-sm-8">
+      <input type="text" id="time" value="<%= time %>" readonly>
+    </div>
+  </div>
+
+
+  <div class="am-form-group">
+    <div class="am-u-sm-12 ">
+      <a href="javascript:void(0);" id="order" class="am-btn am-btn-primary am-btn-block am-radius">预定</a>
+    </div>
+  </div>
+</form>
+
+	<div class="am-g am-padding-lg">
+		<div><small>友情提示：</small></div>
+		<div><small>1. 每日可操作时间段为：09:00-14:00</small></div>
+		<div><small>2. 如果您因故不能就餐，请在14:00前取消订餐</small></div>
+		<div><small>3. 如果订餐后未就餐，产生的费用由自己承担</small></div>
+	</div>
+</div>
+
+
+<!-- 订餐模态框 -->
+<div class="am-modal am-modal-confirm" tabindex="-1" id="confirm">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">确认订餐</div>
+    <div class="am-modal-bd">
+      你，确定要预定今日的晚餐吗？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+    </div>
+  </div>
+</div>
+<!-- 取消订餐模态框 -->
+<div class="am-modal am-modal-confirm" tabindex="-1" id="cancel">
+  <div class="am-modal-dialog">
+    <div class="am-modal-hd">取消订餐</div>
+    <div class="am-modal-bd">
+      你，确定要取消今日的晚餐吗？
+    </div>
+    <div class="am-modal-footer">
+      <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+      <span class="am-modal-btn" data-am-modal-confirm>确定</span>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+
+function getWeekday(sDate){
+    var dt = new Date(sDate.replace(/-/g, '/'));
+    var a = ['星期日', '星期一','星期二','星期三','星期四','星期五','星期六'];
+    $("#time").val(sDate+" "+a[dt.getDay()]);
+}
+getWeekday("<%= time %>");
+	function init(status){
+		if( status == "0"){//未预定
+				$(".description p").html("今日晚餐未预定");
+				$(".later-warp").css("background-color","#0e90d2");
+				$("#order").css("background-color","#0e90d2");
+				$("#imagebackage img").attr("src","/images/notOrder.png");
+				$("#order").html("预定");
+			}else if(status == "1"){//已经预定
+				$(".description p").html("今日晚餐预定成功");
+				$(".later-warp").css("background-color","#ff944c");
+				$("#order").css("background-color","#ff944c");
+				$("#imagebackage img").attr("src","/images/ordersuccess.png");
+				$("#order").html("取消预定");
+			}else if( status == "2"){//未预定超时
+				$(".description p").html("今日晚餐未预定");
+				$(".later-warp").css("background-color","#0e90d2");
+				$("#order").css("background-color","#0e90d2");
+				$("#order").attr("disabled","disabled");
+				$("#order").html("9:00-14:00 外不可预定");
+			}else{//已预定超时
+				$(".description p").html("今日晚餐预定成功");
+				$(".later-warp").css("background-color","#ff944c");
+				$("#order").css("background-color","#ff944c");
+				$("#imagebackage img").attr("src","/images/ordersuccess.png");
+				$("#order").attr("disabled","disabled");
+				$("#order").html("9:00-14:00 外不可取消预定");
+			}
+	}
+	
+$(function(){
+	var status = "<%= status %>";
+	init(status);
+	$("#order").on('click',function(){
+		
+		if(status == "0"){//点击预定
+			$('#confirm').modal({
+				relatedTarget: this,
+				onConfirm: function(options) {
+			        status ="1";
+					init(status);
+			    },
+			    onCancel: function() {
+			         
+			    }
+			})
+			
+		}else if(status == "1"){//点击取消预定
+			$('#cancel').modal({
+				relatedTarget: this,
+				onConfirm: function(options) {
+			        status ="0";
+					init(status);
+			    },
+			        // closeOnConfirm: false,
+			    onCancel: function() {
+			         
+			    }
+			})
+			
+		}
+});
+})
+
+</script>
 <%- include ../include/footer %>
 <%- include ../include/foot %>

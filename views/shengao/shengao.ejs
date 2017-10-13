@@ -1,7 +1,26 @@
 <%- include ../include/head %>
 <%- include ../include/header %>
-
+<script src="/js/distpicker.data.js"></script>
+<script src="/js/distpicker.js"></script>
  <h1>产品申告</h1>
+    <form>
+      <div id="distpicker" class="am-form-inline">
+        <div class="am-form-group am-fl">
+          <select class="am-form-field" id="province"></select>
+        </div>
+        <div class="am-form-group am-fl">
+          <select class="am-form-field" id="city"></select>
+        </div>
+        <div class="am-form-group am-fl">
+          <select class="am-form-field" id="district"></select>
+        </div>
+      </div>
+    </form>
 
+<script type="text/javascript">
+ 
+  $('#distpicker').distpicker();
+
+</script>
 <%- include ../include/footer %>
 <%- include ../include/foot %>
