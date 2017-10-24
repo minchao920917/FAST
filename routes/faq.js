@@ -37,7 +37,7 @@ router.get('/', function(req, res, next) {
 router.get('/faqList', function(req, res, next) {
 	console.log(req.query.text);
 	var faqListData = {
-		"title":"FAQ:"+req.query.text,
+		"title":"搜索结果:"+req.query.text,
 		"needToDo":"3",
 		"faqList":[
 			{
